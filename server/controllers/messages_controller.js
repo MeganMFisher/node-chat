@@ -3,6 +3,7 @@ let id = 0;
 
 module.exports = {
     create: (req, res) => {
+        console.log(req.body)
         const { text, time, name } = req.body;
         messages.push({ id, text, time, name });
         id++

@@ -14,7 +14,7 @@ export default class ChatWindow extends Component {
     this.state = {
       messages: [],
       text: '',
-      name: 'Megan'
+      nameOfSender: 'Megan'
     };
 
     this.handleChange = this.handleChange.bind( this );
@@ -34,7 +34,9 @@ export default class ChatWindow extends Component {
   }
 
   createMessage( event ) {
-    const { text, name } = this.state;
+    const name = this.state.nameOfSender;
+    console.log(name)
+    const { text } = this.state;
     if ( event.key === "Enter" && text.length !== 0 ) {
       axios.post( url, { text, time: dateCreator(), name } ).then( response => {
         this.setState({ messages: response.data });
